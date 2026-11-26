@@ -32,6 +32,12 @@
       const bookingRect = bookingSection.getBoundingClientRect();
       document.body.classList.toggle('booking-in-view', bookingRect.top < window.innerHeight && bookingRect.bottom > 0);
     }
+    const contactSection = document.getElementById('contacts');
+    const footerSection = document.querySelector('.site-footer');
+    const contactRect = contactSection?.getBoundingClientRect();
+    const footerRect = footerSection?.getBoundingClientRect();
+    const contactAreaInView = [contactRect, footerRect].some((rect) => rect && rect.top < window.innerHeight && rect.bottom > 0);
+    document.body.classList.toggle('contact-in-view', contactAreaInView);
     let active = '';
     for (const section of sections) {
       if (section.getBoundingClientRect().top <= 180) active = section.id;
@@ -40,6 +46,17 @@
   };
   window.addEventListener('scroll', updateScrollState, { passive: true });
   updateScrollState();
+
+  // Keep the FAQ compact on mobile: only one answer can stay expanded at a time.
+  const faqItems = [...document.querySelectorAll('.faq-list details')];
+  faqItems.forEach((item) => {
+    item.addEventListener('toggle', () => {
+      if (!item.open) return;
+      faqItems.forEach((other) => {
+        if (other !== item && other.open) other.open = false;
+      });
+    });
+  });
 
   // Route cards and timetable chips set useful values in the booking form.
   const destinationInput = document.querySelector('input[name="to"]');
