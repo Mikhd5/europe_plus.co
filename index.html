@@ -214,12 +214,12 @@
             <label class="field"><span>Куди прямуєте?</span><div class="input-wrap"><svg><use href="#i-pin"/></svg><input type="text" name="to" placeholder="Місто призначення" required autocomplete="address-level2"></div></label>
             <label class="field"><span>Дата виїзду</span><div class="input-wrap"><svg><use href="#i-calendar"/></svg><input type="date" name="date" ></div></label>
             <label class="field passenger-field"><span>Кількість пасажирів</span><div class="input-wrap"><svg><use href="#i-bus"/></svg><select name="passengers"><option value="1">1 пасажир</option><option value="2">2 пасажири</option><option value="3">3 пасажири</option><option value="4">4 пасажири</option><option value="5+">5 або більше</option></select></div></label>
-            <label class="field field-wide"><span>Ваш номер телефону (Viber)</span><div class="input-wrap"><svg><use href="#i-phone"/></svg><input type="tel" name="phone" placeholder="+380 (__) ___ __ __" required autocomplete="tel"></div></label>
+            <label class="field field-wide"><span>Ваш номер телефону (Viber / WhatsApp)</span><div class="input-wrap"><svg><use href="#i-phone"/></svg><input type="tel" name="phone" placeholder="+380 (__) ___ __ __" required autocomplete="tel"></div></label>
           </div>
           <label class="consent"><input type="checkbox" name="consent" required><span>Погоджуюся використати ці дані для зв'язку щодо моєї заявки.</span></label>
           <button class="button button-primary form-submit" type="submit">Підготувати заявку <svg><use href="#i-arrow"/></svg></button>
-          <p class="form-helper">Форма підготує текст звернення для копіювання. Онлайн-відправлення заявки поки не підключене.</p>
-          <div class="form-result" id="formResult" aria-live="polite" hidden><div class="result-title"><svg><use href="#i-check"/></svg><strong>Заявку підготовлено</strong></div><textarea id="requestText" readonly aria-label="Текст заявки"></textarea><button type="button" class="copy-button" id="copyRequest"><svg><use href="#i-copy"/></svg> Скопіювати текст заявки</button><p>Надішліть скопійований текст менеджеру або зателефонуйте за номером для бронювання.</p></div>
+          <p class="form-helper">Після заповнення форми відкриється WhatsApp із готовим повідомленням менеджеру.</p>
+          <div class="form-result" id="formResult" aria-live="polite" hidden><div class="result-title"><svg><use href="#i-check"/></svg><strong>Повідомлення підготовлено для WhatsApp</strong></div><a class="copy-button whatsapp-open" id="openWhatsApp" href="https://wa.me/380679341600" target="_blank" rel="noopener noreferrer">Відкрити WhatsApp <svg><use href="#i-arrow"/></svg></a><textarea id="requestText" readonly aria-label="Текст заявки"></textarea><button type="button" class="copy-button" id="copyRequest"><svg><use href="#i-copy"/></svg> Скопіювати текст заявки</button><p>WhatsApp відкривається на номер +380 67 934 16 00. Якщо нова вкладка не відкрилася автоматично, натисніть «Відкрити WhatsApp».</p></div>
         </form>
       </div>
     </section>
@@ -228,7 +228,7 @@
     <section class="process-section">
       <div class="container">
         <div class="process-heading"><div class="eyebrow"><span></span> ПРОСТО ПОЧАТИ</div><h2>Як забронювати <em>поїздку.</em></h2></div>
-        <div class="process-grid"><article><span class="process-number">01</span><span class="process-icon"><svg><use href="#i-calendar"/></svg></span><h3>Залиште дані</h3><p>Вкажіть міста, дату, кількість пасажирів і номер Viber.</p></article><article><span class="process-number">02</span><span class="process-icon"><svg><use href="#i-phone"/></svg></span><h3>Передайте заявку</h3><p>Скопіюйте підготовлений текст і передайте його менеджеру або зателефонуйте.</p></article><article><span class="process-number">03</span><span class="process-icon"><svg><use href="#i-check"/></svg></span><h3>Узгодьте деталі</h3><p>Уточніть маршрут, дату та умови поїздки безпосередньо з менеджером.</p></article></div>
+        <div class="process-grid"><article><span class="process-number">01</span><span class="process-icon"><svg><use href="#i-calendar"/></svg></span><h3>Залиште дані</h3><p>Вкажіть міста, дату, кількість пасажирів і номер Viber.</p></article><article><span class="process-number">02</span><span class="process-icon"><svg><use href="#i-phone"/></svg></span><h3>Надішліть у WhatsApp</h3><p>Натисніть кнопку — WhatsApp відкриється з готовим повідомленням менеджеру.</p></article><article><span class="process-number">03</span><span class="process-icon"><svg><use href="#i-check"/></svg></span><h3>Узгодьте деталі</h3><p>Уточніть маршрут, дату та умови поїздки безпосередньо з менеджером.</p></article></div>
       </div>
     </section>
 
@@ -237,7 +237,7 @@
       <div class="container faq-layout"><div class="faq-intro"><div class="eyebrow"><span></span> МАЄТЕ ЗАПИТАННЯ?</div><h2>Часті <em>питання.</em></h2><p>Зібрали відповіді на основні питання про поїздки та передачі.</p><a href="#contacts" class="text-button">Зв'язатися з нами <svg><use href="#i-arrow"/></svg></a></div>
         <div class="faq-list">
           <details><summary><span>Які напрямки обслуговує ЄВРОПА+?</span><b>+</b></summary><p>Компанія здійснює пасажирські перевезення між Україною, Німеччиною та Чехією, а також у зворотному напрямку.</p></details>
-          <details><summary><span>Що потрібно для бронювання?</span><b>+</b></summary><p>Для бронювання підготуйте місто відправлення, місто призначення, кількість пасажирів, дату виїзду та номер телефону Viber.</p></details>
+          <details><summary><span>Що потрібно для бронювання?</span><b>+</b></summary><p>Для бронювання вкажіть місто відправлення, місто призначення, кількість пасажирів, дату виїзду та свій контактний телефон. Готова заявка відкриється у WhatsApp.</p></details>
           <details><summary><span>Чи доставляєте пасажирів за адресою?</span><b>+</b></summary><p>Так, компанія зазначає доставку пасажирів за вказаною адресою. Конкретну адресу та можливість такого заїзду узгодьте з менеджером.</p></details>
           <details><summary><span>Які зручності є в салоні?</span><b>+</b></summary><p>За інформацією компанії: телевізор, клімат-контроль, Wi-Fi, зарядні роз'єми, розкладні сидіння, пледи та холодильник із водою.</p></details>
           <details><summary><span>Які речі можна передати посилкою?</span><b>+</b></summary><p>У сторіс компанії зазначені одяг, товари, техніка, документи та гроші. Обов'язково уточніть у менеджера допустимість конкретного відправлення.</p></details>
