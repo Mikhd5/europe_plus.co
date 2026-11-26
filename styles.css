@@ -551,3 +551,9 @@ svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke
 .whatsapp-open{background:var(--orange);border-color:var(--orange);color:#10151b;text-decoration:none}
 .whatsapp-open:hover{background:#ff9a43;border-color:#ff9a43;color:#10151b;transform:translateY(-1px)}
 .whatsapp-open svg{width:15px;height:15px}
+
+/* Mobile polish: prevent the floating action bar from covering contact/footer content. */
+@media(max-width:680px){
+  body.contact-in-view .mobile-bottom-bar{transform:translateY(calc(100% + 20px));opacity:0;pointer-events:none}
+  .site-footer{padding-bottom:calc(42px + env(safe-area-inset-bottom))}
+}
