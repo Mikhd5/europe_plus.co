@@ -49,7 +49,7 @@ svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke
 /* Hero */
 .hero{height:min(720px,calc(100svh - 122px));min-height:600px;position:relative;isolation:isolate;overflow:hidden;background:#070b10}
 .hero-image,.hero-video,.hero-overlay{position:absolute;inset:0;width:100%;height:100%}
-.hero-image{background-image:url('assets/salon-generated.png');background-size:cover;background-position:center 45%;transform:scale(1.015)}
+.hero-image{background-image:url('salon-generated.png?v=2');background-size:cover;background-position:center 45%;transform:scale(1.015)}
 .hero-video{display:none;object-fit:cover;object-position:center 45%}
 .hero-overlay{background:linear-gradient(90deg,rgba(4,8,12,.97) 0%,rgba(5,9,14,.88) 27%,rgba(5,9,14,.47) 56%,rgba(5,9,14,.16) 100%),linear-gradient(0deg,#080c11 0%,transparent 25%,rgba(3,6,9,.14) 100%);z-index:1}
 .hero-inner{position:relative;z-index:2;height:100%;display:flex;align-items:center}
@@ -433,7 +433,7 @@ svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke
     box-shadow:inset 0 -1px 0 rgba(255,255,255,.1);
   }
   .hero-image{
-    background-image:url('assets/hero-desktop.webp');
+    background-image:url('hero-desktop.webp?v=2');
     background-size:cover;
     background-position:center 53%;
     transform:scale(1.012);
