@@ -81,32 +81,49 @@
     });
   });
 
-  // Prepare a copyable enquiry; the static version intentionally does not pretend to submit online.
+  // Send each completed enquiry directly to the company's WhatsApp number.
   const result = document.getElementById('formResult');
   const requestText = document.getElementById('requestText');
   const copyButton = document.getElementById('copyRequest');
+  const whatsappLink = document.getElementById('openWhatsApp');
+  const formHelper = form?.querySelector('.form-helper');
+  const companyWhatsApp = '380679341600';
+
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
     if (!form.reportValidity()) return;
+
     const data = new FormData(form);
     const parcel = data.get('requestType') === 'Передача посилки';
     const dateValue = data.get('date')
       ? new Date(`${data.get('date')}T12:00:00`).toLocaleDateString('uk-UA')
-      : 'Потрібно узгодити';
+      : (parcel ? 'За домовленістю' : 'Потрібно узгодити');
+
     const lines = [
-      `Заявка — Пасажирські перевезення ЄВРОПА+`,
+      'Нова заявка з сайту — Пасажирські перевезення ЄВРОПА+',
       `Тип звернення: ${data.get('requestType')}`,
       `Звідки: ${data.get('from')}`,
       `Куди: ${data.get('to')}`,
       `Дата: ${dateValue}`,
       ...(!parcel ? [`Кількість пасажирів: ${data.get('passengers')}`] : []),
-      `Телефон / Viber: ${data.get('phone')}`
+      `Контактний телефон клієнта: ${data.get('phone')}`
     ];
-    if (requestText) requestText.value = lines.join('\n');
+
+    const message = lines.join('\n');
+    const whatsappUrl = `https://wa.me/${companyWhatsApp}?text=${encodeURIComponent(message)}`;
+
+    if (requestText) requestText.value = message;
+    if (whatsappLink) whatsappLink.href = whatsappUrl;
+
+    // window.open runs directly from the submit gesture so browsers allow the WhatsApp tab.
+    const whatsappTab = window.open(whatsappUrl, '_blank');
+    if (whatsappTab) whatsappTab.opener = null;
+
     if (result) {
       result.hidden = false;
       result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
+    if (formHelper) formHelper.textContent = 'Після натискання кнопки відкривається WhatsApp із готовою заявкою на номер +380 67 934 16 00.';
     if (copyButton) copyButton.textContent = 'Скопіювати текст заявки';
   });
   copyButton?.addEventListener('click', async () => {
