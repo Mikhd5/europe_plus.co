@@ -546,3 +546,8 @@ svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke
     border-top:1px solid rgba(255,255,255,.1);
   }
 }
+
+/* WhatsApp booking action */
+.whatsapp-open{background:var(--orange);border-color:var(--orange);color:#10151b;text-decoration:none}
+.whatsapp-open:hover{background:#ff9a43;border-color:#ff9a43;color:#10151b;transform:translateY(-1px)}
+.whatsapp-open svg{width:15px;height:15px}
